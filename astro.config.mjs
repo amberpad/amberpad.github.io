@@ -26,6 +26,8 @@ const whenExternalScripts = (items = []) =>
 
 export default defineConfig({
   output: 'static',
+  site: 'https://amberpad.github.io/',
+  base: 'amberpad',
 
   integrations: [
     tailwind({
