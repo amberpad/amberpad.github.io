@@ -43,6 +43,14 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
           </Link>
         </NavigationMenuItem>
         
+        <NavigationMenuItem>
+          <Link href="/about" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle({ variant: 'ghost' })}>
+              About
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
         <span className='text-base font-medium select-none'> | </span>
 
         {/* Icon buttons */}

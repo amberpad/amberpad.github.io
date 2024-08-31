@@ -53,13 +53,13 @@ const navigationMenuTriggerStyle = cva(
           'transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none'
         ),
         ghost: cn(
-          'text-gray-900 dark:text-gray-50 text-base font-extrabold',
+          'text-foreground text-base font-extrabold',
           'underline-offset-4 hover:underline'
         ),
         icon: cn(
-          'text-gray-900 dark:text-gray-50 text-xl',
+          'text-foreground text-xl',
           'cursor-pointer hover:no-underline', 
-          'hover:text-primary-700 active:text-primary-700 dark:hover:text-primary-300 dark:active:text-primary-300'
+          'hover:text-accent active:text-accent dark:hover:text-accent dark:active:text-accent'
         ),
       },
     },

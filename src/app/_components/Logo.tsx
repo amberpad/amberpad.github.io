@@ -13,9 +13,10 @@ const Logo = React.forwardRef<any, Props>((props, forwardedRef) => {
     <Button 
       className={cn(
         'inline-flex justify-center items-center',
-        'text-primary-500'
+        'bg-background rounded-md px-4 py-2',
+        'text-foreground hover:underline hover:text-foreground active:text-foreground'
       )}
-      variant='link'
+      variant='ghost'
       asChild
     >
     <span 

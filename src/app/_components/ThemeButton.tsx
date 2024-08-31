@@ -22,13 +22,11 @@ const ThemeButton = React.forwardRef<any, Props>((props, forwardedRef) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log(themeModule)
     setTheme(themeModule.getTheme())
     setLoading(false)
   }, [])
 
   const toggleTheme = useCallback(() => {
-    console.log('TOGGLE THEME')
     themeModule.toggleTheme()
     setTheme(prev => prev === 'light' ? 'dark' : 'light')
   }, [])

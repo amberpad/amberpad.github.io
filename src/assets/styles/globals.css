@@ -22,8 +22,8 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 32.11, 97.88%, 37.06%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -33,6 +33,10 @@
     --ring: 0 0% 76%;
 
     --radius: 0.5rem;
+    --header-size: 5.0rem;
+    --footer-size: 7.0rem;
+    --content-size: calc(100dvh - var(--header-size) - var(--footer-size));
+    --slide-size: calc(100dvh - var(--header-size));
   }
   
   .dark {
@@ -54,8 +58,8 @@
     --muted: 40 5% 22%;
     --muted-foreground: 45 5% 49%;
 
-    --accent: 44 45% 14%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 53.19, 100%, 63.73%;
+    --accent-foreground: 60 3% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -84,4 +88,52 @@
 
 .pattern-2 {
   background: linear-gradient(135deg, #fbb800, #fa8a00);
+}
+
+.pattern-3 {
+  background:
+  conic-gradient(from -116.36deg at 25% 75%,rgba(71, 160, 255, 0) 52.72deg,#0000 0), conic-gradient(from -116.36deg at 25% 75%,rgba(71, 160, 255, 0) 52.72deg,#0000 0) calc(3*30px) calc(30px/2),
+  conic-gradient(from   63.43deg at 75% 75%,rgba(71, 160, 255, 0) 52.72deg,#0000 0), conic-gradient(from   63.43deg at 75% 75%,rgba(71, 160, 255, 0) 52.72deg,#0000 0) calc(3*30px) calc(30px/2),
+  conic-gradient(
+    rgba(168,168,168,0.12)   63.43deg ,rgba(117, 117, 117, 0.12) 0 116.36deg,
+    rgba(168,168,168,0.12) 0 180deg   ,rgba(117, 117, 117, 0.12) 0 243.43deg,
+    rgba(168,168,168,0.12) 0 296.15deg,rgba(117, 117, 117, 0.12) 0);
+background-size: 60px 30px;
+
+}
+
+.pattern-4 {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 32px, rgba(255, 201, 37, 0.12) 32px, rgba(255, 201, 37, 0.12) 64px);
+background-color: rgba(71, 212, 255, 0);
+}
+
+.pattern-5 {
+  background: linear-gradient(45deg,#0000 calc(25%/3), rgba(255, 201, 37, 0.12) 0 calc(50%/3),
+      #0000 0 calc(250%/3), rgba(255, 201, 37, 0.12) 0 calc(275%/3),
+      #0000 0),linear-gradient( 45deg,rgba(255, 201, 37, 0.12) calc(25%/3), #0000 0 calc(50%/3),
+      rgba(255, 201, 37, 0.12) 0 25%, #0000 0 75%,
+      rgba(255, 201, 37, 0.12) 0 calc(250%/3), #0000 0 calc(275%/3),
+      rgba(255, 201, 37, 0.12) 0),
+      linear-gradient(-45deg,#0000 calc(25%/3), rgba(255, 201, 37, 0.12) 0 calc(50%/3),
+      #0000 0 calc(250%/3), rgba(255, 201, 37, 0.12) 0 calc(275%/3),
+      #0000 0),linear-gradient(-45deg,rgba(255, 201, 37, 0.12) calc(25%/3), #0000 0 calc(50%/3),
+      rgba(255, 201, 37, 0.12) 0 25%, #0000 0 75%,
+      rgba(255, 201, 37, 0.12) 0 calc(250%/3), #0000 0 calc(275%/3),
+      rgba(255, 201, 37, 0.12) 0)
+      rgba(71, 212, 255, 0);
+background-size: 60px 60px;
+background-position: 0 0, 30px  30px;
+
+}
+
+@layer utilities {
+  .formatted-text {
+    @apply prose
+  }
+
+  .simple-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  }
 }

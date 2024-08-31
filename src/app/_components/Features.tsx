@@ -27,7 +27,7 @@ const Item = ({
     <div
       data-tag='item'
       className={cn(
-        'bg-[#ffdf805d] rounded-md shadow-sm border border-white/15 backdrop-blur-md',
+        'bg-[#ffffff7c] rounded-md shadow-sm border border-white/15 backdrop-blur-md',
         'w-full p-4',
         'flex flex-row justify-start items-start gap-4'
       )}
@@ -39,7 +39,7 @@ const Item = ({
       />
       <div
         data-tag='content'
-        className='prose w-full'
+        className='w-full'
       >
         <h3>{title}</h3>
         <p>{content}</p>
@@ -53,7 +53,8 @@ const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
     <section 
       {...props}
       className={cn(
-        'bg-[#FFDF80] pattern-2 w-full',
+        'w-full px-8',
+        'bg-[#FFDF80] pattern-2',
         'flex flex-col justify-center items-center'
       )}
       ref={forwardedRef}

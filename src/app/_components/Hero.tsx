@@ -14,7 +14,7 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
     <section 
       {...props}
       className={cn(
-        'max-w-screen-lg px-4',
+        'w-full max-w-screen-lg h-slide px-8',
         'flex flex-row justify-center items-center gap-4'
       )}
       ref={forwardedRef}
@@ -28,17 +28,17 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
       >
         <div
           className={cn(
-            'prose prose-slate dark:prose-invert text-left',
-            'flex flex-col justify-start items-center gap-4'
+            'text-left',
+            //'flex flex-col justify-start items-center gap-4'
           )}
         >
           <h1
-            className='m-0'
+            className='m-1'
           >
             Your Ideas, Captured in <span className='text-primary-500'>Amber</span>
           </h1>
           <h3
-            className='m-0'
+            className='m-1'
           >
             Simple, efficient, and smart. The note-taking app with a web chat aesthetic.
           </h3>

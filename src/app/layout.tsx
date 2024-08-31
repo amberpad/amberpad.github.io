@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Header from "./_components/Header";
-import Footer from "./_components/Footer";
-import Script from 'next/script'
 import "@/assets/styles/globals.css";
 
 const fontSans = FontSans({
@@ -21,7 +19,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html 
       suppressHydrationWarning={true}
@@ -41,14 +38,13 @@ export default function RootLayout({
       </head>
       <body 
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-[100dvh] bg-background font-sans antialiased",
           'flex flex-col justify-start items-center',
           fontSans.variable
         )}
       >
         <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

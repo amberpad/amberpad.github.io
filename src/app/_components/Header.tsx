@@ -13,8 +13,9 @@ const Header = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
     <header 
       {...props}
       className={cn(
-        'backdrop-blur w-full h-fit mb-4 sticky top-0 z-50',
-        'flex flex-row justify-center',
+        'w-full h-header',
+        'backdrop-blur sticky top-0 z-50',
+        'flex flex-row justify-center items-center',
       )}
       ref={forwardedRef}
     >
