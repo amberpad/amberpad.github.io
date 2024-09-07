@@ -10,8 +10,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar"
 import { FaUser, FaRegUser, FaGithub, FaLink, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Button } from "@/ui/button";
+import prefetchedData from "@/assets/prefetched/github.json";
 
-const Contributor = () => {
+console.log('prefetchedData', prefetchedData.contributors)
+
+const Collaborator = ({
+  member
+}: {
+  member: typeof prefetchedData.members[number]
+}) => {
   return (
     <div
       className={cn(
@@ -21,13 +28,13 @@ const Contributor = () => {
       <Card
         className={cn(
           'w-full h-full',
-          'shadow-md border-amber-500'
+          'overflow-visible shadow-md shadow-amber-500 border-amber-600 dark:border-amber-200 dark:shadow-amber-200'
         )}
       >
         <CardContent
           className={cn(
-            'px-4 py-4',
-            'flex flex-col justify-start items-stretch gap-4',
+            'px-6 py-6',
+            'flex flex-col justify-start items-stretch gap-2',
           )}
         >
           <div
@@ -36,9 +43,14 @@ const Contributor = () => {
             )}
           >
             <Avatar
-              className='aspect-square w-28 h-28 pointer-events-none'
+              className={cn(
+                'aspect-square w-28 h-28 pointer-events-none',
+                'shadow-md shadow-primary-800 dark:shadow-primary-200'
+              )}
             >
-              <AvatarImage src="https://avatars.githubusercontent.com/u/2516177" />
+              <AvatarImage 
+                src={member.avatar_url}
+              />
               <AvatarFallback>
                 <FaUser className="text-5xl" />
               </AvatarFallback>
@@ -51,46 +63,138 @@ const Contributor = () => {
               'flex flex-col justify-start items-start gap-0',
             )}
           >
-            <h3 className='m-0'>Max Hernandez</h3>
-            <Button variant='link' className='p-0 h-fit'>@maxkalavera</Button>
+            <h3 className='m-0'>{member.name}</h3>
+            <Button 
+              variant='link' 
+              className='p-0 h-fit'
+              asChild={true}
+            >
+              <a href={member.html_url}>
+                @{member.login}
+              </a>
+            </Button>
           </div>
 
           <div
             data-tag='socials'
             className={cn(
               'w-full',
-              'flex flex-row justify-center items-end gap-4'
+              'flex flex-row justify-end items-end gap-3'
+            )}
+          >
+            { !!member.twitter_username ? (
+              <Button 
+                variant='ghost'
+                className='text-lg p-0'
+                asChild={true}
+              >
+                <a href={`https://x.com/${member.twitter_username}`}>
+                  <FaXTwitter />
+                </a>
+
+              </Button>
+            ) : undefined}
+
+            <Button 
+              variant='ghost'
+              className='text-lg p-0'
+              asChild={true}
+            >
+              <a href={member.html_url}>
+                <FaGithub />
+              </a>
+            </Button>
+
+            { !!member.blog ? (
+              <Button 
+                variant='ghost'
+                className='text-lg p-0'
+                asChild={true}
+              >
+                <a href={member.blog}>
+                  <FaLink />
+                </a>
+
+              </Button>
+            ) : undefined}
+
+          </div>
+
+        </CardContent>
+      </ Card>
+    </div>
+  )
+}
+
+
+const Contributor = ({
+  contributor
+}: {
+  contributor: {
+    avatar_url: string;
+    html_url: string;
+    login: string;
+    contributions: number;
+  }
+}) => {
+  return (
+    <div
+      className={cn(
+        'w-42 h-42',
+        'overflow-visible'
+      )}
+    >
+      <Card
+        className={cn(
+          'w-full h-full',
+          'rounded-2xl',
+          'overflow-visible shadow-md shadow-amber-500 border-amber-600 dark:border-amber-200 dark:shadow-amber-200'
+        )}
+      >
+        <CardContent
+          className={cn(
+            'px-6 py-6',
+            'flex flex-col justify-start items-stretch gap-2',
+          )}
+        >
+          <div
+            className={cn(
+              'flex flex-row justify-center items-end gap-0'
+            )}
+          >
+            <Avatar
+              className={cn(
+                'aspect-square w-16 h-16 pointer-events-none',
+                'shadow-sm shadow-primary-800 dark:shadow-primary-200'
+              )}
+            >
+              <AvatarImage 
+                src={contributor.avatar_url}
+              />
+              <AvatarFallback>
+                <FaUser className="text-xl" />
+              </AvatarFallback>
+            </Avatar>
+          </div>
+
+          <div
+            data-tag='info'
+            className={cn(
+              'flex flex-col justify-start items-start gap-0',
             )}
           >
             <Button 
-              variant='ghost'
-              className='text-2xl p-0'
+              variant='link' 
+              className='p-0 h-fit'
+              asChild={true}
             >
-              <FaLinkedin />
+              <a href={contributor.html_url}>
+                @{contributor.login}
+              </a>
             </Button>
 
-            <Button 
-              variant='ghost'
-              className='text-2xl p-0'
-            >
-              <FaXTwitter />
-            </Button>
-
-            <Button 
-              variant='ghost'
-              className='text-2xl p-0'
-            >
-              <FaGithub />
-            </Button>
-
-            <Button 
-              variant='ghost'
-              className='text-2xl p-0'
-            >
-              <FaLink />
-            </Button>
+            <h5>{contributor.contributions} contributions</h5>
           </div>
-
         </CardContent>
       </ Card>
     </div>
@@ -120,36 +224,56 @@ export default function About() {
       </article>
 
       <div
-        data-tag='contributors'
+        data-tag='collaborators'
         className={cn(
           'pattern-5',
           'w-full max-w-screen-lg h-fit px-8 py-16',
-          'flex flex-col justify-start items-start gap-8'
+          'flex flex-col justify-start items-start gap-10'
         )}
       >
-        <h2>Contributors</h2>
+        <h2>collaborators</h2>
         <div
           className={cn(
             'w-full',
             'simple-grid'
           )}
         >
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
-          <Contributor />
+          {
+            prefetchedData.members.map(member => 
+              <Collaborator 
+                key={member.id}
+                member={member}
+              />
+            )
+          }
         </div>
+
+        {
+          prefetchedData.contributors.length > 0 ? (
+            <>
+              <h2>Contributors</h2>
+              <div
+                className={cn(
+                  'w-full',
+                  'flex flex-row justify-start items-start gap-12 flex-wrap'
+                )}
+              >
+                {
+                  prefetchedData.contributors.map(contributor => 
+                    <Contributor 
+                      key={contributor.id}
+                      contributor={contributor}
+                    />
+                  )
+                }
+              </div>
+            </>
+          ) : null
+        }
+
       </div>
+
+
     </section>
   );
 }

@@ -135,5 +135,11 @@ background-position: 0 0, 30px  30px;
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+
+    justify-items: start;
+    align-items: start;
+    
+    justify-content: center;
+    align-content: center;
   }
 }

@@ -6,7 +6,7 @@ import Features from "./_components/Features";
 import { cn } from "@/lib/utils";
 
 function Home() {
-  
+
   return (
     <>
       <main className={cn(
