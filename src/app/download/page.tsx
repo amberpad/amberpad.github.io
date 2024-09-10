@@ -283,7 +283,8 @@ const DownloadForm = () => {
                 'h-fit p-4 overflow-visible',
                 'text-xl text-primary border border-primary hover:border-accent active:border-accent',
                 'flex flex-row justify-center items-start gap-4 flex-wrap',
-                'text-wrap align-middle'
+                'text-wrap align-middle',
+                'text-primary-500 border-primary-500'
               )}
               asChild={true}
             >

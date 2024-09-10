@@ -15,7 +15,6 @@ const getStorageTheme = (): Theme | null => window.localStorage.getItem('data-th
 const setStorageTheme = (theme: Theme) => window.localStorage.setItem('data-theme', theme);
 
 const setThemeClass = (theme: Theme) => {
-  console.log('SET THEME CLASS', theme)
   if (theme === 'light') {
     document.documentElement.classList.remove('dark')
   } else {

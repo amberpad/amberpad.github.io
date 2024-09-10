@@ -61,7 +61,8 @@ const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
     <section 
       {...props}
       className={cn(
-        'bg-gradient-to-b from-primary-500/70 to-primary-600/40',
+        'bg-gradient-to-b from-primary-600/70 to-primary-500/70',
+        'dark:bg-gradient-to-b dark:from-primary-500/70 dark:to-primary-400/70',
         'w-full min-h-slide px-4 py-16',
         'sm:px-8 md:px-12 2xl:min-h-fit 2xl:py-28',
         'flex flex-col justify-center items-center'

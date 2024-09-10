@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Link from "next/link";
 import { FaGripLines, FaGithub } from "react-icons/fa6";
 import { Button } from "@/ui/button";
@@ -21,8 +22,13 @@ interface Props extends React.ComponentPropsWithoutRef<React.ElementType> {
 }
 
 const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <Sheet>
+    <Sheet
+      open={isOpen}
+      onOpenChange={(value) => setIsOpen(value)}
+    >
       <SheetTrigger
         asChild={true}
       >
@@ -57,6 +63,7 @@ const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) 
             >
               <a
                 href='#'
+                onClick={() => setIsOpen(false)}
               >
                 <FaGithub />
               </a>
@@ -73,18 +80,27 @@ const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) 
           )}
         >
 
-          <Link href="/download" legacyBehavior passHref>
-            <Button variant='ghost'>
+          <Link href="/" legacyBehavior passHref>
+            <Button 
+              variant='ghost'
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </Button>
           </Link>
-          <Link href="/about" legacyBehavior passHref>
-            <Button variant='ghost'>
+          <Link href="/download" legacyBehavior passHref>
+            <Button 
+              variant='ghost'
+              onClick={() => setIsOpen(false)}
+            >
               Download
             </Button>
           </Link>
-          <Link href="/" legacyBehavior passHref>
-            <Button variant='ghost'>
+          <Link href="/about" legacyBehavior passHref>
+            <Button 
+              variant='ghost'
+              onClick={() => setIsOpen(false)}
+            >
               About
             </Button>
           </Link>
