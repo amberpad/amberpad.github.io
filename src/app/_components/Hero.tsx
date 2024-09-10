@@ -14,8 +14,10 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
     <section 
       {...props}
       className={cn(
-        'w-full max-w-screen-lg h-slide px-8',
-        'flex flex-row justify-center items-center gap-4'
+        'w-full h-slide px-4 py-12',
+        'lg:max-w-screen-lg lg:h-slide',
+        'flex flex-col justify-center items-center gap-4',
+        'lg:flex lg:flex-row lg:justify-center lg:items-center',
       )}
       ref={forwardedRef}
     >
@@ -23,22 +25,21 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
         data-tag='content'
         className={cn(
           'max-w-96',
-          'flex flex-col justify-center items-center gap-4'
+          'flex flex-col justify-center items-center gap-6'
         )}
       >
         <div
           className={cn(
             'text-left',
-            //'flex flex-col justify-start items-center gap-4'
           )}
         >
           <h1
-            className='m-1'
+            className='mb-6 font-sans text-fluent-2xl leading-none font-bold'
           >
             Your Ideas, Captured in <span className='text-primary-500'>Amber</span>
           </h1>
           <h3
-            className='m-1'
+            className='font-sans text-fluent-base leading-snug'
           >
             Simple, efficient, and smart. The note-taking app with a web chat aesthetic.
           </h3>
@@ -48,7 +49,7 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
 
       <div
         className={cn(
-          'relative w-full aspect-square max-w-screen-md',
+          'relative w-full aspect-square',
           'flex flex-col justify-center items-center',
           'overflow-visible'
         )}

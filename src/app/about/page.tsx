@@ -211,11 +211,11 @@ export default function About() {
         data-tag='About info'
         className={cn(
           'w-full max-w-screen-lg h-fit px-4 py-16',
-          'prose dark:prose-invert'
+          'font-sans prose prose-stone dark:prose-invert'
         )}
       >
-        <h2>About</h2>
-        <p>
+        <h2 className="header text-fluent-lg text-shades-950 dark:text-shades-0">About</h2>
+        <p className="text-shades-700 dark:text-shades-300">
         Welcome to [Your Website Name], your one-stop destination for [describe what the website offers, e.g., innovative tech solutions, fashion inspiration, reliable news, etc.]. Founded in [Year], we are dedicated to bringing you the best [products/services/content] with a focus on [key aspects like quality, customer service, uniqueness]. 
           At [Your Website Name], we believe in [your core values, e.g., simplicity, innovation, sustainability]. Our mission is to [briefly describe the website's mission, e.g., empower our users with cutting-edge technology, bring fashion trends to life, provide trustworthy information]. We strive to provide a seamless experience that caters to your needs and exceeds your expectations. 
           Whether you’re here for [list key offerings, e.g., expert advice, the latest trends, reliable products], we’ve got something for everyone. Explore our [website/app] to discover [more about what you offer]. 
@@ -228,10 +228,14 @@ export default function About() {
         className={cn(
           'pattern-5',
           'w-full max-w-screen-lg h-fit px-8 py-16',
-          'flex flex-col justify-start items-start gap-10'
+          'flex flex-col justify-start items-start gap-4'
         )}
       >
-        <h2>collaborators</h2>
+        <h2
+          className="header text-fluent-lg"
+        >
+          Collaborators
+        </h2>
         <div
           className={cn(
             'w-full',
@@ -251,7 +255,11 @@ export default function About() {
         {
           prefetchedData.contributors.length > 0 ? (
             <>
-              <h2>Contributors</h2>
+              <h2
+                className="header text-fluent-lg"
+              >
+                Contributors
+              </h2>
               <div
                 className={cn(
                   'w-full',

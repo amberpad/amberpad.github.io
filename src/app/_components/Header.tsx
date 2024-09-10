@@ -1,8 +1,10 @@
 import React from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
+import MobileNavigationMenu from "./MobileNavigationMenu";
 
 import { cn } from "@/lib/utils";
+
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType> {
 
@@ -16,6 +18,7 @@ const Header = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
         'w-full h-header',
         'backdrop-blur sticky top-0 z-50',
         'flex flex-row justify-center items-center',
+        'overflow-x-hidden'
       )}
       ref={forwardedRef}
     >
@@ -27,7 +30,13 @@ const Header = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
         )}
       >
         <Logo />
-        <Navbar />
+        <Navbar 
+          className='hidden md:block' 
+        />
+        <MobileNavigationMenu 
+          className='md:hidden'
+        />
+
       </div>
 
     </header>

@@ -299,7 +299,9 @@ const DownloadForm = () => {
           )
         }
       </div>
-      <h5>
+      <h5
+        className="font-sans text-fluent-sm"
+      >
         Read&nbsp;
         <Button 
           variant='link' 
@@ -330,7 +332,7 @@ export default function Download() {
           'flex flex-col justify-start items-stretch gap-4',
         )}
       >
-        <h1 className=''>
+        <h1 className='header text-fluent-lg'>
           Download
         </h1>
         <Tabs 

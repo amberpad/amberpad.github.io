@@ -25,11 +25,20 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
     <NavigationMenu 
       {...props}
       ref={forwardedRef}
+      className={cn(
+        (props.className || ''),
+        'font-sans',
+      )}
     >
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle({ variant: 'ghost' })}>
+            <NavigationMenuLink 
+              className={cn(
+                navigationMenuTriggerStyle({ variant: 'ghost' }),
+                'font-medium'
+              )}
+            >
               Home
             </NavigationMenuLink>
           </Link>
@@ -37,7 +46,12 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
 
         <NavigationMenuItem>
           <Link href="/download" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle({ variant: 'ghost' })}>
+            <NavigationMenuLink 
+              className={cn(
+                navigationMenuTriggerStyle({ variant: 'ghost' }),
+                'font-medium'
+              )}
+            >
               Download
             </NavigationMenuLink>
           </Link>
@@ -45,7 +59,12 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
         
         <NavigationMenuItem>
           <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle({ variant: 'ghost' })}>
+            <NavigationMenuLink 
+              className={cn(
+                navigationMenuTriggerStyle({ variant: 'ghost' }),
+                'font-medium'
+              )}
+            >
               About
             </NavigationMenuLink>
           </Link>
@@ -54,7 +73,11 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
         <span className='text-base font-medium select-none'> | </span>
 
         {/* Icon buttons */}
-        <ThemeButton />
+        <NavigationMenuItem>
+          <ThemeButton 
+            className={navigationMenuTriggerStyle({ variant: 'icon' })}
+          />          
+        </NavigationMenuItem>
         
         <NavigationMenuItem>
           <NavigationMenuLink 

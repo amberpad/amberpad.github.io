@@ -13,7 +13,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
   return (
     <footer 
       className={cn(
-        'pattern-1 w-full h-footer py-2',
+        'pattern-1 w-full h-fit py-4',
         'flex flex-row justify-center items-end'
       )}
       {...props}
@@ -22,7 +22,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
       <div
         className={cn(
           'w-full max-w-screen-lg h-full max-h-full p-2',
-          'flex flex-col justify-end items-end gap-1 z-10'
+          'flex flex-col justify-end items-end gap-0 z-10'
         )}
       >
         <div

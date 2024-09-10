@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
+    --background: theme(colors.white);
+    --foreground: theme(colors.stone[950]);
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 5%;
@@ -40,8 +40,8 @@
   }
   
   .dark {
-    --background: 60 3% 6%;
-    --foreground: 0 0% 98%;
+    --background: theme(colors.stone[950]);
+    --foreground: theme(colors.white);
 
     --card: 60 6% 7%;
     --card-foreground: 0 0% 98%;
@@ -68,15 +68,63 @@
     --input: 45 4% 18%;
     --ring: 44 100% 40%;
   }
-}
 
-@layer base {
+  /* For browsers that support clamp and container queries */
+  @supports (font-size: clamp(1rem, 1cqi, 1rem)) {
+    :root {
+      --fluent-sm: clamp(0.8rem, 0.38cqi + 0.65rem, 0.89rem);
+      --fluent-base: clamp(1rem, 0.78cqi + 0.69rem, 1.19rem);
+      --fluent-md: clamp(1.25rem, 1.39cqi + 0.7rem, 1.58rem);
+      --fluent-lg: clamp(1.56rem, 2.28cqi + 0.65rem, 2.11rem);
+      --fluent-xl: clamp(1.95rem, 3.58cqi + 0.52rem, 2.81rem);
+      --fluent-2xl: clamp(2.44rem, 5.45cqi + 0.26rem, 3.75rem);
+      --fluent-3xl: clamp(3.05rem, 8.11cqi + -0.19rem, 5rem);
+    }
+  }
+  /* For browsers that don't support clamp or container queries */
+  @supports not (font-size: clamp(1rem, 1cqi, 1rem)) {
+    :root {
+      --fluent-sm: 0.8rem;
+      --fluent-base: 1rem;
+      --fluent-md: 1.25rem;
+      --fluent-lg: 1.56rem;
+      --fluent-xl: 1.95rem;
+      --fluent-2xl: 2.44rem;
+      --fluent-3xl: 3.05rem;
+    }
+    @media screen and (min-width: 1024px) {
+      :root {
+        --fluent-sm: 0.89rem;
+        --fluent-base: 1.19rem;
+        --fluent-md: 1.58rem;
+        --fluent-lg: 2.11rem;
+        --fluent-xl: 2.81rem;
+        --fluent-2xl: 3.75rem;
+        --fluent-3xl: 5rem;
+      }
+    }
+  }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
+  .header {
+    @apply font-sans text-foreground font-semibold tracking-tight mb-4
+  }
+}
+
+@layer components {
+}
+
+.dark-background-pattern {
+  opacity: 1;
+  background-image: radial-gradient(#322C13 0.8px, rgba(15, 13, 7, 0) 0.8px);
+  background-size: 16px 16px;
 }
 
 .pattern-1 {
@@ -84,10 +132,6 @@
   background-position: center center;
   background-repeat: repeat;
   background-image: url('../images/pattern-1.svg');
-}
-
-.pattern-2 {
-  background: linear-gradient(135deg, #fbb800, #fa8a00);
 }
 
 .pattern-3 {

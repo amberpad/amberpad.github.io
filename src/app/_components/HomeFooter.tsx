@@ -13,7 +13,8 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
   return (
     <footer 
       className={cn(
-        'pattern-1 w-full h-96 mt-16 overflow-visible',
+        'pattern-1 w-full h-72 mt-72 overflow-visible',
+        'md:mt-72 lg:mt-96',
         'flex flex-row justify-center items-end'
       )}
       {...props}
@@ -29,7 +30,8 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
         <div
           className={cn(
             'backdrop-blur-[0.6rem] w-fit h-fit max-h-full p-2',
-            'flex flex-col justify-end items-stretch gap-2 z-10'
+            'flex flex-col justify-end items-stretch gap-2 z-10',
+            'bg-[#fbb80082] text-primary-foreground',
           )}
         >
           <div
@@ -49,7 +51,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
             )}>
               Released under the 
               <Button 
-                className='text-[0.8rem] px-2' 
+                className='text-[0.8rem] text-primary-900 px-2' 
                 variant='link'
                 asChild
               >
@@ -57,7 +59,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
               </Button>
               ⋅ 
               <Button 
-                className='text-[0.8rem] px-2' 
+                className='text-[0.8rem] text-primary-900 px-2' 
                 variant='link'
                 asChild
               >
@@ -65,7 +67,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
               </Button>
               ⋅
               <Button 
-                className='text-[0.8rem] px-2' 
+                className='text-[0.8rem] text-primary-900 px-2' 
                 variant='link'
                 asChild
               >
@@ -76,7 +78,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
         </div>
         <Image 
           className={cn(
-            'absolute bottom-0 right-0 z-0 max-w-screen-sm'
+            'absolute bottom-0 right-0 z-0 max-w-96 sm:max-w-screen-sm',
           )}
           src={SVGIlustration}
           alt='Ilustration of a girl holding in her hand an amber stone'

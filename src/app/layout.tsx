@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { 
+  Inter as FontSans,
+  Libre_Baskerville as FontSerif,
+} from "next/font/google";
 import { cn } from "@/lib/utils";
 import Header from "./_components/Header";
 import "@/assets/styles/globals.css";
@@ -7,7 +10,16 @@ import "@/assets/styles/globals.css";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: 'swap',
 })
+
+const fontSerif = FontSerif({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-serif",
+  display: 'swap',
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,6 +37,7 @@ export default function RootLayout({
       lang="en"
     >
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script 
           // This code is placed here because is needed to run before the app renders
           dangerouslySetInnerHTML={{
@@ -35,12 +48,16 @@ export default function RootLayout({
             `
           }}
         />
+        <title>Amberpad</title>
       </head>
       <body 
         className={cn(
-          "min-h-[100dvh] bg-background font-sans antialiased",
+          'min-h-[100dvh]',
+          'font-sans antialiased',
           'flex flex-col justify-start items-center',
-          fontSans.variable
+          'overflow-x-hidden',
+          fontSans.variable,
+          fontSerif.variable,
         )}
       >
         <Header />

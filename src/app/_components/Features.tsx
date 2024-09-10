@@ -27,22 +27,30 @@ const Item = ({
     <div
       data-tag='item'
       className={cn(
-        'bg-[#ffffff7c] rounded-md shadow-sm border border-white/15 backdrop-blur-md',
+        'bg-white/75 rounded-lg shadow-sm border border-gray-50/95 backdrop-blur-md',
+        'dark:bg-stone-900/85 dark:border-none',
         'w-full p-4',
-        'flex flex-row justify-start items-start gap-4'
+        'md:px-6 md:py-4',
+        'flex flex-col justify-start items-center gap-6',
+        'lg:flex lg:flex-row lg:justify-start lg:items-start',
       )}
     >
       <Image
-        className='min-w-28 max-w-40'
+        className={cn(
+          'w-40',
+          'md:w-[34%]',
+        )}
         src={image}
         alt={`${title} ilustration`}
       />
       <div
         data-tag='content'
-        className='w-full'
+        className={cn(
+          'w-full prose prose-stone prose-sm font-sans',
+        )}
       >
-        <h3>{title}</h3>
-        <p>{content}</p>
+        <h3 className="text-shades-950 dark:text-shades-0">{title}</h3>
+        <p className="font-medium text-shades-700 dark:text-shades-300">{content}</p>
       </div>
     </div>
   )
@@ -53,22 +61,30 @@ const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
     <section 
       {...props}
       className={cn(
-        'w-full px-8',
-        'bg-[#FFDF80] pattern-2',
+        'bg-gradient-to-b from-primary-500/70 to-primary-600/40',
+        'w-full min-h-slide px-4 py-16',
+        'sm:px-8 md:px-12 2xl:min-h-fit 2xl:py-28',
         'flex flex-col justify-center items-center'
       )}
       ref={forwardedRef}
     >
       <div
         className={cn(
-          'w-full max-w-screen-lg h-fit min-h-96 px-4 py-16',
-          'grid auto-rows-auto sm:grid-cols-2 gap-4'
+          'w-full max-w-screen-lg h-fit min-h-96',
+          '',
+          'grid auto-rows-auto gap-8',
+          'sm:grid-cols-2 lg:gap-12'
         )}
       >
         <Item 
           image={SVGOpenSource}
           title='Open Source'
-          content='You have full access to the source code, allowing you to analyze, customize, and extend the app. You can fork the project, build on it, or contribute to its development, ensuring transparency in its functionality and fostering support from a growing community.'
+          content={
+            `
+            You have full access to the source code, allowing you to analyze, customize, and extend 
+            the app, ensuring transparency in its functionality and fostering support from a growing community.
+            `
+          }
         />
         <Item 
           image={SVGUserExperience}

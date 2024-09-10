@@ -1,18 +1,8 @@
 "use client"
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FaCircleHalfStroke, FaMoon, FaSpinner, FaSun } from "react-icons/fa6";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle
-} from "@/ui/navigation-menu";
 import themeModule, { type Theme } from "@/lib/theme";
+import { Button } from "@/ui/button";
 import { cn } from "@/lib/utils";
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType>  {}
@@ -33,10 +23,9 @@ const ThemeButton = React.forwardRef<any, Props>((props, forwardedRef) => {
   
   if (loading) {
     return (
-      <NavigationMenuItem>
-      <NavigationMenuLink 
+      <span
         className={cn(
-          navigationMenuTriggerStyle({ variant: 'icon' }),
+          props.className || '',
           'text-muted-foreground hover:text-muted-foreground active:text-muted-foreground',
           'dark:text-muted-foreground dark:hover:text-muted-foreground dark:active:text-muted-foreground',
           'cursor-default'
@@ -47,24 +36,22 @@ const ThemeButton = React.forwardRef<any, Props>((props, forwardedRef) => {
           className='animate-spin'
           rotate='true' 
         />
-      </NavigationMenuLink>
-  </NavigationMenuItem>
+      </span>
     )
   }
 
   return (
-    <NavigationMenuItem>
-      <NavigationMenuLink 
-        className={navigationMenuTriggerStyle({ variant: 'icon' })}
-        onClick={toggleTheme}
-      >
-        { theme === 'light' ? 
-          <FaMoon /> :
-          <FaSun />          
-        }
-
-      </NavigationMenuLink>
-  </NavigationMenuItem>
+    <span
+      className={cn(
+        props.className || '',
+      )}
+      onClick={toggleTheme}
+    >
+      { theme === 'light' ? 
+        <FaMoon /> :
+        <FaSun />          
+      }
+    </span>
   )
 })
 
