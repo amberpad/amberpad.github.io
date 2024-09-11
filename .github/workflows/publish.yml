@@ -36,11 +36,10 @@ jobs:
         with:
           static_site_generator: next
 
-      - name: Build with NextJS
-        run: yarn build
-
-      - name: Check if was builded
-        run: ls ./
+      - run: yarn prefetch-github
+      - run: npx next build ./
+      # - run: yarn build
+      - run: ls ./
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
