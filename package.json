@@ -38,6 +38,7 @@
     "@types/ua-parser-js": "^0.7.39",
     "eslint": "^8",
     "eslint-config-next": "14.2.6",
+    "favicons": "^7.2.0",
     "lodash": "^4.17.21",
     "lowdb": "^7.0.1",
     "octokit": "^4.0.2",
