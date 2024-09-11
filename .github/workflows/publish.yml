@@ -39,6 +39,9 @@ jobs:
       - name: Build with NextJS
         run: yarn build
 
+      - name: Check if was builded
+        run: ls ./out
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
