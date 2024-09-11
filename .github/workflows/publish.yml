@@ -40,7 +40,7 @@ jobs:
         run: yarn build
 
       - name: Check if was builded
-        run: ls ./out
+        run: ls ./
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
