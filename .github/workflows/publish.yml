@@ -31,14 +31,13 @@ jobs:
         if: steps.cache_dependencies.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile 
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
+      #- name: Setup Pages
+      #  uses: actions/configure-pages@v4
+      #  with:
+      #    static_site_generator: next
 
-      - run: yarn prefetch-github
-      - run: npx next build ./
-      # - run: yarn build
+      - name: Build site
+        run: yarn build
       - run: ls ./
 
       - name: Upload artifact
