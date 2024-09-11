@@ -12,8 +12,6 @@ import { FaUser, FaRegUser, FaGithub, FaLink, FaLinkedin, FaXTwitter } from "rea
 import { Button } from "@/ui/button";
 import prefetchedData from "@/assets/prefetched/github.json";
 
-console.log('prefetchedData', prefetchedData.contributors)
-
 const Collaborator = ({
   member
 }: {
@@ -217,9 +215,13 @@ export default function About() {
         <h2 className="header text-fluent-lg text-shades-950 dark:text-shades-0">About</h2>
         <p className="text-shades-700 dark:text-shades-300">
         Welcome to [Your Website Name], your one-stop destination for [describe what the website offers, e.g., innovative tech solutions, fashion inspiration, reliable news, etc.]. Founded in [Year], we are dedicated to bringing you the best [products/services/content] with a focus on [key aspects like quality, customer service, uniqueness]. 
-          At [Your Website Name], we believe in [your core values, e.g., simplicity, innovation, sustainability]. Our mission is to [briefly describe the website's mission, e.g., empower our users with cutting-edge technology, bring fashion trends to life, provide trustworthy information]. We strive to provide a seamless experience that caters to your needs and exceeds your expectations. 
-          Whether you’re here for [list key offerings, e.g., expert advice, the latest trends, reliable products], we’ve got something for everyone. Explore our [website/app] to discover [more about what you offer]. 
-          Thank you for choosing [Your Website Name]. We’re thrilled to have you on board!
+          At [Your Website Name], we believe in [your core values, e.g., 
+          simplicity, innovation, sustainability]. Our mission is to [briefly describe the website&apos;s 
+          mission, e.g., empower our users with cutting-edge technology, bring fashion trends to life, 
+          provide trustworthy information]. We strive to provide a seamless experience that caters to 
+          your needs and exceeds your expectations. 
+          Whether you&apos;re here for [list key offerings, e.g., expert advice, the latest trends, reliable products], we’ve got something for everyone. Explore our [website/app] to discover [more about what you offer]. 
+          Thank you for choosing [Your Website Name]. We&apos;re thrilled to have you on board!
         </p>
       </article>
 
@@ -253,7 +255,7 @@ export default function About() {
         </div>
 
         {
-          prefetchedData.contributors.length > 0 ? (
+          (prefetchedData.contributors as any[]).length > 0 ? (
             <>
               <h2
                 className="header text-fluent-lg"
@@ -267,7 +269,7 @@ export default function About() {
                 )}
               >
                 {
-                  prefetchedData.contributors.map(contributor => 
+                  (prefetchedData.contributors as any[]).map(contributor => 
                     <Contributor 
                       key={contributor.id}
                       contributor={contributor}
