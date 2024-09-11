@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         shell: bash
         if: steps.cache_dependencies.outputs.cache-hit != 'true'
-        run: npm ci
+        run: yarn install --frozen-lockfile 
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -37,7 +37,7 @@ jobs:
           static_site_generator: next
 
       - name: Build with NextJS
-        run: npm run build
+        run: yarn build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
