@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run prefetch-github && next build",
+    "build": "npm run prefetch-github && next build ./",
     "start": "next start",
     "lint": "next lint",
     "prefetch-github": "node ./scripts/github.mjs",
