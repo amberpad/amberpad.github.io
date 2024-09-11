@@ -22,7 +22,8 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
       <div
         className={cn(
           'w-full max-w-screen-lg h-full max-h-full p-2',
-          'flex flex-col justify-end items-end gap-0 z-10'
+          'flex flex-col justify-end items-end gap-0 z-10',
+          'text-primary-foreground'
         )}
       >
         <div
@@ -48,7 +49,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
           )}>
             Released under the 
             <Button 
-              className='text-[0.8rem] px-2' 
+              className='text-[0.8rem] text-primary-900 px-2' 
               variant='link'
               asChild
             >
@@ -56,7 +57,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
             </Button>
             ⋅ 
             <Button 
-              className='text-[0.8rem] px-2' 
+              className='text-[0.8rem] text-primary-900 px-2' 
               variant='link'
               asChild
             >
@@ -64,7 +65,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
             </Button>
             ⋅
             <Button 
-              className='text-[0.8rem] px-2' 
+              className='text-[0.8rem] text-primary-900 px-2' 
               variant='link'
               asChild
             >
