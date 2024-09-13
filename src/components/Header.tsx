@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "./Logo";
-import Navbar from "./Navbar";
-import MobileNavigationMenu from "./MobileNavigationMenu";
+import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
+import MobileNavigationMenu from "@/components/MobileNavigationMenu";
 
 import { cn } from "@/lib/utils";
 

@@ -46,14 +46,14 @@ const config = {
           ...colors.stone,
         },
         primary: {
-          default: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
           ...colors.amber,
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          default: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
           ...colors.stone,
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

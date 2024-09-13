@@ -1,59 +1,18 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Button } from "@/ui/button"
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import React from "react";
+import { Download, Edit, Share2, Lock } from "lucide-react"
 
 import SVGOpenSource from '@/assets/images/features-open-source.svg'
 import SVGUserExperience from '@/assets/images/features-user-experience.svg'
 import SVGFamiliarInterface from '@/assets/images/features-familiar-interface.svg'
 import SVGIntuitiveOrganization from '@/assets/images/features-intuitive-organization.svg'
+import DownloadButton from "./DownloadButton";
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType>  {
 
-}
-
-interface ItemProps extends React.ComponentPropsWithoutRef<React.ElementType>  {
-  image: string | StaticImport;
-  title: string; 
-  content: string;
-}
-
-const Item = ({
-  image, 
-  title, 
-  content
-}: ItemProps) => {
-  return (
-    <div
-      data-tag='item'
-      className={cn(
-        'bg-white/75 rounded-lg shadow-sm border border-gray-50/95 backdrop-blur-md',
-        'dark:bg-stone-900/85 dark:border-none',
-        'w-full p-4',
-        'md:px-6 md:py-4',
-        'flex flex-col justify-start items-center gap-6',
-        'lg:flex lg:flex-row lg:justify-start lg:items-start',
-      )}
-    >
-      <Image
-        className={cn(
-          'w-40',
-          'md:w-[34%]',
-        )}
-        src={image}
-        alt={`${title} ilustration`}
-      />
-      <div
-        data-tag='content'
-        className={cn(
-          'w-full prose prose-stone prose-sm font-sans',
-        )}
-      >
-        <h3 className="text-shades-950 dark:text-shades-0">{title}</h3>
-        <p className="font-medium text-shades-700 dark:text-shades-300">{content}</p>
-      </div>
-    </div>
-  )
 }
 
 const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
@@ -61,48 +20,54 @@ const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
     <section 
       {...props}
       className={cn(
-        'bg-gradient-to-b from-primary-600/70 to-primary-500/70',
-        'dark:bg-gradient-to-b dark:from-primary-500/70 dark:to-primary-400/70',
         'w-full min-h-slide px-4 py-16',
         'sm:px-8 md:px-12 2xl:min-h-fit 2xl:py-28',
         'flex flex-col justify-center items-center'
       )}
       ref={forwardedRef}
     >
-      <div
-        className={cn(
-          'w-full max-w-screen-lg h-fit min-h-96',
-          '',
-          'grid auto-rows-auto gap-8',
-          'sm:grid-cols-2 lg:gap-12'
-        )}
-      >
-        <Item 
+      <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-12">
+        <span className="bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide select-none pointer-events-none">
+          Beta
+        </span>
+        <h2 className="mt-4 text-3xl font-extrabold text-foreground dark:text-foreground sm:text-4xl">
+          Experience the Future of Note-Taking
+        </h2>
+        <p className="mt-3 max-w-2xl mx-auto text-xl text-stone-700 dark:text-stone-300 sm:mt-4">
+          The revolutionary notes app is now in Beta. Be among the first to try it out and shape its future!
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 mb-12">
+        <FeatureCard 
           image={SVGOpenSource}
-          title='Open Source'
-          content={
-            `
+          title="Open Source"
+          description={`
             You have full access to the source code, allowing you to analyze, customize, and extend 
             the app, ensuring transparency in its functionality and fostering support from a growing community.
-            `
-          }
+          `}
         />
-        <Item 
+        <FeatureCard 
           image={SVGUserExperience}
           title='User Experience'
-          content='Crafted with a focus on user experience (UX) and usability, the app is designed to be intuitive and user-friendly.'
+          description='Crafted with a focus on user experience (UX) and usability, the app is designed to be intuitive and user-friendly.'
         />
-        <Item 
+        <FeatureCard 
           image={SVGFamiliarInterface}
           title='Familiar Interface'
-          content='A design that looks and feels like apps you already use, making it instantly recognizable and easy to navigate.'
+          description='A design that looks and feels like apps you already use, making it instantly recognizable and easy to navigate.'
         />
-        <Item 
+        <FeatureCard 
           image={SVGIntuitiveOrganization}
           title='Intuitive Organization'
-          content='Easily sort and organize your notes with simple drag-and-drop functionality, customizable folders, and tags.'
-        />        
+          description='Easily sort and organize your notes with simple drag-and-drop functionality, customizable folders, and tags.'
+        />
       </div>
+      
+      <DownloadButton />
+    </div>
+
     </section>
   )
 })
@@ -110,3 +75,42 @@ const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
 Features.displayName = 'Features';
 
 export default Features
+
+/******************************************************************************
+* Subcomponents
+******************************************************************************/
+
+function FeatureCard(
+  { 
+    image,
+    title, 
+    description 
+  }: {
+    image: any,
+    title: string,
+    description: string,
+  }
+) {
+  return (
+    <div 
+      className={cn(
+        "bg-background rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform",
+        "dark:bg-background dark:border dark:border-gray-700",
+        "hover:-translate-y-1 hover:shadow-lg"
+      )}
+    >
+      <div className="flex items-center justify-center w-24 h-24 mb-4">
+        <Image
+          className={cn(
+            'h-24 pointer-events-none',
+            'dark:grayscale-[0.4]',
+          )}
+          src={image}
+          alt={`${title} ilustration`}
+        />
+      </div>
+      <h3 className="text-lg font-semibold text-foreground dark:text-foreground mb-2">{title}</h3>
+      <p className="text-stone-700 dark:text-stone-300">{description}</p>
+    </div>
+  )
+}

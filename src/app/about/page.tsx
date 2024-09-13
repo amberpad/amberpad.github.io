@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/ui/card"
+import GeneralLayout from "@/layouts/GeneralLayout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/avatar"
 import { FaUser, FaRegUser, FaGithub, FaLink, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { Button } from "@/ui/button";
@@ -201,89 +202,89 @@ const Contributor = ({
 
 export default function About() {
   return (
-    <section className={cn(
-      'flex flex-col min-h-slide justify-start items-center',
-      'w-full'
-    )}>
-      <article
-        data-tag='About info'
-        className={cn(
-          'w-full max-w-screen-lg h-fit px-4 py-16',
-          'font-sans prose prose-stone dark:prose-invert'
-        )}
-      >
-        <h2 className="header text-fluent-lg text-shades-950 dark:text-shades-0">About</h2>
-        <p className="text-shades-700 dark:text-shades-300">
-        Welcome to [Your Website Name], your one-stop destination for [describe what the website offers, e.g., innovative tech solutions, fashion inspiration, reliable news, etc.]. Founded in [Year], we are dedicated to bringing you the best [products/services/content] with a focus on [key aspects like quality, customer service, uniqueness]. 
-          At [Your Website Name], we believe in [your core values, e.g., 
-          simplicity, innovation, sustainability]. Our mission is to [briefly describe the website&apos;s 
-          mission, e.g., empower our users with cutting-edge technology, bring fashion trends to life, 
-          provide trustworthy information]. We strive to provide a seamless experience that caters to 
-          your needs and exceeds your expectations. 
-          Whether you&apos;re here for [list key offerings, e.g., expert advice, the latest trends, reliable products], we’ve got something for everyone. Explore our [website/app] to discover [more about what you offer]. 
-          Thank you for choosing [Your Website Name]. We&apos;re thrilled to have you on board!
-        </p>
-      </article>
-
-      <div
-        data-tag='collaborators'
-        className={cn(
-          'pattern-5',
-          'w-full max-w-screen-lg h-fit px-8 py-16',
-          'flex flex-col justify-start items-start gap-4'
-        )}
-      >
-        <h2
-          className="header text-fluent-lg"
-        >
-          Collaborators
-        </h2>
-        <div
+    <GeneralLayout>
+      <section className={cn(
+        'flex flex-col min-h-slide justify-start items-center',
+        'w-full'
+      )}>
+        <article
+          data-tag='About info'
           className={cn(
-            'w-full',
-            'simple-grid'
+            'w-full max-w-screen-lg h-fit px-4 py-16',
+            'font-sans prose prose-stone dark:prose-invert'
           )}
         >
+          <h2 className="header text-fluent-lg text-shades-950 dark:text-shades-0">About</h2>
+          <p className="text-shades-700 dark:text-shades-300">
+          Welcome to [Your Website Name], your one-stop destination for [describe what the website offers, e.g., innovative tech solutions, fashion inspiration, reliable news, etc.]. Founded in [Year], we are dedicated to bringing you the best [products/services/content] with a focus on [key aspects like quality, customer service, uniqueness]. 
+            At [Your Website Name], we believe in [your core values, e.g., 
+            simplicity, innovation, sustainability]. Our mission is to [briefly describe the website&apos;s 
+            mission, e.g., empower our users with cutting-edge technology, bring fashion trends to life, 
+            provide trustworthy information]. We strive to provide a seamless experience that caters to 
+            your needs and exceeds your expectations. 
+            Whether you&apos;re here for [list key offerings, e.g., expert advice, the latest trends, reliable products], we’ve got something for everyone. Explore our [website/app] to discover [more about what you offer]. 
+            Thank you for choosing [Your Website Name]. We&apos;re thrilled to have you on board!
+          </p>
+        </article>
+
+        <div
+          data-tag='collaborators'
+          className={cn(
+            'pattern-5',
+            'w-full max-w-screen-lg h-fit px-8 py-16',
+            'flex flex-col justify-start items-start gap-4'
+          )}
+        >
+          <h2
+            className="header text-fluent-lg"
+          >
+            Collaborators
+          </h2>
+          <div
+            className={cn(
+              'w-full',
+              'simple-grid'
+            )}
+          >
+            {
+              prefetchedData.members.map(member => 
+                <Collaborator 
+                  key={member.id}
+                  member={member}
+                />
+              )
+            }
+          </div>
+
           {
-            prefetchedData.members.map(member => 
-              <Collaborator 
-                key={member.id}
-                member={member}
-              />
-            )
+            (prefetchedData.contributors as any[]).length > 0 ? (
+              <>
+                <h2
+                  className="header text-fluent-lg"
+                >
+                  Contributors
+                </h2>
+                <div
+                  className={cn(
+                    'w-full',
+                    'flex flex-row justify-start items-start gap-12 flex-wrap'
+                  )}
+                >
+                  {
+                    (prefetchedData.contributors as any[]).map(contributor => 
+                      <Contributor 
+                        key={contributor.id}
+                        contributor={contributor}
+                      />
+                    )
+                  }
+                </div>
+              </>
+            ) : null
           }
+
         </div>
-
-        {
-          (prefetchedData.contributors as any[]).length > 0 ? (
-            <>
-              <h2
-                className="header text-fluent-lg"
-              >
-                Contributors
-              </h2>
-              <div
-                className={cn(
-                  'w-full',
-                  'flex flex-row justify-start items-start gap-12 flex-wrap'
-                )}
-              >
-                {
-                  (prefetchedData.contributors as any[]).map(contributor => 
-                    <Contributor 
-                      key={contributor.id}
-                      contributor={contributor}
-                    />
-                  )
-                }
-              </div>
-            </>
-          ) : null
-        }
-
-      </div>
-
-
-    </section>
+      </section>
+    </GeneralLayout>
   );
 }

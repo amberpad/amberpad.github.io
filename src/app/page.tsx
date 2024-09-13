@@ -1,14 +1,12 @@
-import { Button } from "@/ui/button";
-import Image from "next/image";
-import HomeFooter from "./_components/HomeFooter";
+import HomeLayout from '@/layouts/HomeLayout'
 import Hero from "./_components/Hero";
-import Features from "./_components/Features";
+import Features from "@/app/_components/Features";
 import { cn } from "@/lib/utils";
 
 function Home() {
 
   return (
-    <>
+    <HomeLayout>
       <main className={cn(
         'flex flex-col justify-center items-center',
         'w-full'
@@ -16,8 +14,7 @@ function Home() {
         <Hero />
         <Features />
       </main>
-      <HomeFooter />
-    </>
+    </HomeLayout>
   );
 }
 

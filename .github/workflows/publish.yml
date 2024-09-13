@@ -30,16 +30,8 @@ jobs:
         shell: bash
         if: steps.cache_dependencies.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile 
-
-      #- name: Setup Pages
-      #  uses: actions/configure-pages@v4
-      #  with:
-      #    static_site_generator: next
-
       - name: Build site
         run: yarn build
-      - run: ls ./
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

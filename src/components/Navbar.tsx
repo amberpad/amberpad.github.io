@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle
 } from "@/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import ThemeButton from "./ThemeButton";
+import ThemeButton from "@/components/ThemeButton";
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType> {
 

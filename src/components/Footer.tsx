@@ -61,7 +61,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
               variant='link'
               asChild
             >
-              <a href="#">Privacy Policy</a>
+              <a href="/privacy-policy">Privacy Policy</a>
             </Button>
             ⋅
             <Button 

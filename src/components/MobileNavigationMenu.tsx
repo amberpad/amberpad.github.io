@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaGripLines, FaGithub } from "react-icons/fa6";
 import { Button } from "@/ui/button";
 import { cn } from '@/lib/utils';
-import ThemeButton from "./ThemeButton";
+import ThemeButton from "@/components/ThemeButton";
 import { navigationMenuTriggerStyle } from "@/ui/navigation-menu";
 import {
   Sheet,

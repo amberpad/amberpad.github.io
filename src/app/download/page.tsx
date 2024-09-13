@@ -23,6 +23,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs"
 import { FaDownload } from "react-icons/fa6";
 import { useMemo, useEffect, useRef, useState } from "react";
 import { filterDownloadAssets, getUserAgentDownloadAssetsDefaults } from "@/lib/utils";
+import GeneralLayout from "@/layouts/GeneralLayout";
 import prefetchedData from '@/assets/prefetched/github.json'
 
 const latestRelease = prefetchedData.latestRelease
@@ -323,52 +324,54 @@ const DownloadForm = () => {
 
 export default function Download() {
   return (
-    <section className={cn(
-      'w-full',
-      'flex flex-col min-h-slide justify-start items-center',
-    )}>
-      <div
-        className={cn(
-          'w-fit max-w-screen-lg min-h-content px-4 py-16',
-          'flex flex-col justify-start items-stretch gap-4',
-        )}
-      >
-        <h1 className='header text-fluent-lg'>
-          Download
-        </h1>
-        <Tabs 
+    <GeneralLayout>
+      <section className={cn(
+        'w-full',
+        'flex flex-col min-h-slide justify-start items-center',
+      )}>
+        <div
           className={cn(
-            'w-full'
+            'w-fit max-w-screen-lg min-h-content px-4 py-16',
+            'flex flex-col justify-start items-stretch gap-4',
           )}
-          defaultValue="installer" 
         >
-          <TabsList>
-            <TabsTrigger value="installer">Prebuilt installer</TabsTrigger>
-            {/* 
-              <TabsTrigger value="source">Source code</TabsTrigger>         
-            */}
-           </TabsList>
-          
-          <TabsContent value="installer">
-            <Card>
-              <CardContent>
-                <DownloadForm />
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* 
-            <TabsContent value="source">
+          <h1 className='header text-fluent-lg'>
+            Download
+          </h1>
+          <Tabs 
+            className={cn(
+              'w-full'
+            )}
+            defaultValue="installer" 
+          >
+            <TabsList>
+              <TabsTrigger value="installer">Prebuilt installer</TabsTrigger>
+              {/* 
+                <TabsTrigger value="source">Source code</TabsTrigger>         
+              */}
+            </TabsList>
+            
+            <TabsContent value="installer">
               <Card>
                 <CardContent>
                   <DownloadForm />
                 </CardContent>
               </Card>
-            </TabsContent>          
-          */}
+            </TabsContent>
 
-        </Tabs>
-      </div>
-    </section>
+            {/* 
+              <TabsContent value="source">
+                <Card>
+                  <CardContent>
+                    <DownloadForm />
+                  </CardContent>
+                </Card>
+              </TabsContent>          
+            */}
+
+          </Tabs>
+        </div>
+      </section>
+    </GeneralLayout>
   );
 }

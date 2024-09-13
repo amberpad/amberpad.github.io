@@ -13,8 +13,8 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
   return (
     <footer 
       className={cn(
-        'pattern-1 w-full h-72 mt-72 overflow-visible',
-        'md:mt-72 lg:mt-96',
+        'pattern-1 w-full h-72 mt-28 overflow-visible',
+        'md:mt-72 lg:mt-40',
         'flex flex-row justify-center items-end'
       )}
       {...props}
@@ -63,7 +63,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
                 variant='link'
                 asChild
               >
-                <a href="#">Privacy Policy</a>
+                <a href="/privacy-policy">Privacy Policy</a>
               </Button>
               ⋅
               <Button 
@@ -78,7 +78,7 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
         </div>
         <Image 
           className={cn(
-            'absolute bottom-0 right-0 z-0 max-w-96 sm:max-w-screen-sm',
+            'absolute bottom-0 right-0 z-0 max-w-96 sm:max-w-screen-sm pointer-events-none',
           )}
           src={SVGIlustration}
           alt='Ilustration of a girl holding in her hand an amber stone'

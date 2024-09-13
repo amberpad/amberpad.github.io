@@ -41,41 +41,38 @@ const DownloadButton = React.forwardRef<any, Props>((props, forwardedRef) => {
   }, [])
 
   return (
-    <Link 
-      href={
-        state.installable === null ?
-          "/download" :
-          state.installable.browser_download_url
-      }
-      legacyBehavior 
-      passHref
-    >
-      <Button 
-        {...props}
-        className='bg-orange-500 text-white hover:bg-orange-400'
-        ref={forwardedRef}
+    <div className="text-center">
+      <Link 
+        href={
+          state.installable === null ?
+            "/download" :
+            state.installable.browser_download_url
+        }
+        legacyBehavior 
+        passHref
       >
-
-        {(() => {
-          if (state.loading) {
-            return (
-              <FaSpinner 
-                className='animate-spin'
-                rotate='true' 
-              />
-            )
-          } else if (state.installable === null) {
-            return 'Download now'
-          } else {
-            return `Get Amberpad for ${({
-              'darwin': 'Mac OS',
-              'win32': 'Windows',
-              'linux': 'Linux'
-            })[state.installable.platform as string]}`
+        <Button 
+          {...props}
+          className="bg-orange-500 hover:bg-orange-400 text-white"
+          ref={forwardedRef}
+        >
+          {
+            state.loading ? 
+              (
+                <FaSpinner 
+                  className='animate-spin'
+                  rotate='true' 
+                />
+              ):
+              'Download Beta Now'
           }
-        })()}        
-      </Button>
-    </Link>
+                 
+        </Button>
+      </Link>
+      <p className="mt-4 text-xs text-gray-800 dark:text-gray-300">
+        Available for Windows and Linux.
+      </p>
+    </div>
   )
 })
 
