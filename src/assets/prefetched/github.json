@@ -607,7 +607,7 @@
         "content_type": "text/yaml",
         "state": "uploaded",
         "size": 336,
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2024-09-06T07:57:47Z",
         "updated_at": "2024-09-06T07:57:47Z",
         "browser_download_url": "https://github.com/maxkalavera/amberpad/releases/download/v0.14.0/latest-mac.yml"

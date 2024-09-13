@@ -18,7 +18,7 @@ export default function Contact() {
             <CardHeader className="text-center">
               <CardTitle className="text-3xl font-bold">Contact Us</CardTitle>
               <CardDescription className="">
-                We'd love to hear from you. Fill out the form below to get in touch.
+                We&apos;d love to hear from you. Fill out the form below to get in touch.
               </CardDescription>
             </CardHeader>
             <CardContent>
