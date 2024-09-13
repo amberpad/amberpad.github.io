@@ -12,11 +12,12 @@ interface Props extends React.ComponentPropsWithoutRef<React.ElementType> {
 const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
   return (
     <footer 
-      className={cn(
-        'pattern-1 w-full h-fit py-4',
-        'flex flex-row justify-center items-end'
-      )}
       {...props}
+      className={cn(
+        props.className || '',
+        'pattern-1 w-full h-fit py-4',
+        'flex flex-row justify-center items-end',
+      )}
       ref={forwardedRef}
     >
       <div

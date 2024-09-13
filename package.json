@@ -31,8 +31,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.11",
     "@tailwindcss/typography": "^0.5.14",
     "@types/lodash": "^4.17.7",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

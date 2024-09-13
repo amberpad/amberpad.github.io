@@ -10,7 +10,9 @@ export default function GeneralLayout({
     <>
         <Header />
         {children}
-        <Footer />
+        <Footer 
+          className="mt-24"
+        />
     </>
   )
 }
