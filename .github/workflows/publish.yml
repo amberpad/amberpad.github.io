@@ -28,7 +28,6 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
       - name: Install Dependencies
         shell: bash
-        if: steps.cache_dependencies.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile 
       - name: Build site
         run: yarn build
