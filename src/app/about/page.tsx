@@ -218,12 +218,11 @@ export default function About() {
 
           <p className="text-shades-700 dark:text-shades-300">
             Amberpad was created with an open-source mindset. 
-            The development began with <a href="https://maxkalavera.github.io/">Max Hernandez</a>, 
-            after noticing that many people were using messaging services as makeshift notepads to save 
+            The development began with <a href="https://maxkalavera.github.io/">Max Hernandez (Me)</a>, 
+            after noticing that collegues and friends were using messaging services as makeshift notepads to save 
             links and important information.
-            The goal of Amberpad is to offer a dedicated notes app that allows users to easily 
-            store information from websites and social networks, simply by sharing content 
-            in the same way you would share a funny video with a friend.
+            Amberpad&#8217;s purpose is simple: to provide a dedicated space for saving content 
+            from websites and social media, just as easily as you&#8217;d share a meme with a friend. 
           </p>
 
           <p className="text-shades-700 dark:text-shades-300">
