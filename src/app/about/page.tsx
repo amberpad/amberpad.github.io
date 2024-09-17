@@ -215,15 +215,19 @@ export default function About() {
           )}
         >
           <h2 className="header text-fluent-lg text-shades-950 dark:text-shades-0">About</h2>
+
           <p className="text-shades-700 dark:text-shades-300">
-          Welcome to [Your Website Name], your one-stop destination for [describe what the website offers, e.g., innovative tech solutions, fashion inspiration, reliable news, etc.]. Founded in [Year], we are dedicated to bringing you the best [products/services/content] with a focus on [key aspects like quality, customer service, uniqueness]. 
-            At [Your Website Name], we believe in [your core values, e.g., 
-            simplicity, innovation, sustainability]. Our mission is to [briefly describe the website&apos;s 
-            mission, e.g., empower our users with cutting-edge technology, bring fashion trends to life, 
-            provide trustworthy information]. We strive to provide a seamless experience that caters to 
-            your needs and exceeds your expectations. 
-            Whether you&apos;re here for [list key offerings, e.g., expert advice, the latest trends, reliable products], we’ve got something for everyone. Explore our [website/app] to discover [more about what you offer]. 
-            Thank you for choosing [Your Website Name]. We&apos;re thrilled to have you on board!
+            Amberpad was created with an open-source mindset. 
+            The development began with <a href="https://maxkalavera.github.io/">Max Hernandez</a>, 
+            after noticing that many people were using messaging services as makeshift notepads to save 
+            links and important information.
+            The goal of Amberpad is to offer a dedicated notes app that allows users to easily 
+            store information from websites and social networks, simply by sharing content 
+            in the same way you would share a funny video with a friend.
+          </p>
+
+          <p className="text-shades-700 dark:text-shades-300">
+            We welcome any contributions and encourage you to check out the <a href="#contributing">contributing</a> page if you&#39;d like to get involved.
           </p>
         </article>
 
