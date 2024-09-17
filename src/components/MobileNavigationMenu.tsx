@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaGripLines, FaGithub } from "react-icons/fa6";
 import { Button } from "@/ui/button";
 import { cn } from '@/lib/utils';
-import ThemeButton from "@/components/ThemeButton";
+import ThemesButton from "@/components/ThemesButton";
 import { navigationMenuTriggerStyle } from "@/ui/navigation-menu";
 import {
   Sheet,
@@ -54,7 +54,7 @@ const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) 
               'flex flex-row justify-start items-center gap-2'
             )}
           >
-            <ThemeButton 
+            <ThemesButton 
               className={navigationMenuTriggerStyle({ variant: 'icon' })}
             />
             <Button

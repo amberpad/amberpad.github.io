@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle
 } from "@/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import ThemeButton from "@/components/ThemeButton";
+import ThemesButton from "@/components/ThemesButton";
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType> {
 
@@ -74,7 +74,7 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
 
         {/* Icon buttons */}
         <NavigationMenuItem>
-          <ThemeButton 
+          <ThemesButton 
             className={navigationMenuTriggerStyle({ variant: 'icon' })}
           />          
         </NavigationMenuItem>

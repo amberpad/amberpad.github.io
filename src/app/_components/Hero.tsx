@@ -1,20 +1,32 @@
+'use client'
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import DownloadButton from "./DownloadButton";
 import ImageAppLight from '@/assets/images/hero-app-light.png'
+import ImageAppDark from '@/assets/images/hero-app-dark.png'
 import SVGBlob from '@/assets/images/blob.svg'
 import React from "react";
+import { useTheme } from 'next-themes'
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType>  {
 
 }
 
 const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
+  const { theme } = useTheme()
+
+  let renderTheme = undefined 
+  if (theme === 'system') {
+    renderTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light'
+  } else {
+    renderTheme = theme
+  }
+
   return (
     <section 
       {...props}
       className={cn(
-        'w-full h-slide px-4 py-12',
+        'w-full min-h-slide px-4 py-12',
         'lg:max-w-screen-lg lg:h-slide',
         'flex flex-col justify-center items-center gap-4',
         'lg:flex lg:flex-row lg:justify-center lg:items-center',
@@ -68,7 +80,7 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
             'pointer-events-none select-none',
             'drop-shadow-md'
           )}
-          src={ImageAppLight} 
+          src={renderTheme === 'light' ? ImageAppLight : ImageAppDark} 
           alt='App screenshot'
         />
       </div>

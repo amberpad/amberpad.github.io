@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from 'next-themes'
 import { headers } from 'next/headers';
 import { 
   Inter as FontSans,
@@ -35,8 +36,8 @@ export default function RootLayout({
 
   return (
     <html 
-      suppressHydrationWarning={true}
       lang="en"
+      suppressHydrationWarning
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -100,17 +101,6 @@ export default function RootLayout({
         <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"/>
         <meta name="msapplication-config" content="/favicons/browserconfig.xml"/>
         <link rel="yandex-tableau-widget" href="/favicons/yandex-browser-manifest.json"></link>
-
-        <script 
-          // This code is placed here because is needed to run before the app renders
-          dangerouslySetInnerHTML={{
-            __html: `
-              const getSystemTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-              const getStorageTheme = () => window.localStorage.getItem('data-theme');
-              document.documentElement.classList.add(getStorageTheme() || getSystemTheme());
-            `
-          }}
-        />
       </head>
       <body 
         className={cn(
@@ -122,8 +112,10 @@ export default function RootLayout({
           fontSerif.variable,
         )}
       >
-        {/*<Header />*/}
-        {children}
+        <ThemeProvider attribute="class">
+          {children}
+        </ThemeProvider>
+
       </body>
     </html>
   );
