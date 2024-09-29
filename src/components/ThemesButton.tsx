@@ -18,8 +18,6 @@ interface Props extends React.ComponentPropsWithoutRef<React.ElementType>  {}
 const ThemeButton = React.forwardRef<any, Props>((props, forwardedRef) => {
   const { theme, setTheme } = useTheme()
   const [loading, setLoading] = useState<boolean>(true);
-  
-  console.log('Theme', theme)
 
   useEffect(() => {
     // To use the button only after the first render
