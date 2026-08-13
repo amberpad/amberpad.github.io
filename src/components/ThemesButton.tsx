@@ -1,25 +1,21 @@
 "use client"
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCircleHalfStroke, FaMoon, FaSpinner, FaSun } from "react-icons/fa6";
 import {
   Menubar,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from "@/ui/menubar"
 import { useTheme } from 'next-themes'
-import { cn } from "@/lib/utils";
+
 
 interface Props extends React.ComponentPropsWithoutRef<React.ElementType>  {}
 
 const ThemeButton = React.forwardRef<any, Props>((props, forwardedRef) => {
   const { theme, setTheme } = useTheme()
   const [loading, setLoading] = useState<boolean>(true);
-  
-  console.log('Theme', theme)
 
   useEffect(() => {
     // To use the button only after the first render
