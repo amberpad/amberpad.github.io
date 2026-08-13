@@ -23,7 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.436.0",
-    "next": "14.2.6",
+    "next": "^16.3.0",
     "react": "^18",
     "react-dom": "^18",
     "remove": "^0.1.5",
@@ -43,7 +43,7 @@
     "@types/react-dom": "^18",
     "@types/ua-parser-js": "^0.7.39",
     "eslint": "^8",
-    "eslint-config-next": "14.2.6",
+    "eslint-config-next": "^16.3.0",
     "favicons": "^7.2.0",
     "lodash": "^4.17.21",
     "lowdb": "^7.0.1",
@@ -55,6 +55,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^5",
     "ua-parser-js": "^1.0.38"
-  },
-  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  }
 }

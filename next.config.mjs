@@ -4,6 +4,7 @@ import createMDX from '@next/mdx'
 const nextConfig = {
   distDir: 'build',
   output: "export",
+  turbopack: {},
   images: { unoptimized: true },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };

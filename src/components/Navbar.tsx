@@ -1,15 +1,13 @@
-import React, { useCallback, useEffect, useState } from "react";
+"use client"
+
+import React from "react";
 import Link from "next/link";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa6";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle
 } from "@/ui/navigation-menu";
 import { cn } from "@/lib/utils";
@@ -31,43 +29,47 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
       )}
     >
       <NavigationMenuList>
+        
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink 
-              className={cn(
-                navigationMenuTriggerStyle({ variant: 'ghost' }),
-                'font-medium'
-              )}
-            >
+          <NavigationMenuLink 
+            className={cn(
+              navigationMenuTriggerStyle({ variant: 'ghost' }),
+              'font-medium'
+            )}
+            asChild
+          >
+            <Link href="/">
               Home
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/download" legacyBehavior passHref>
-            <NavigationMenuLink 
-              className={cn(
-                navigationMenuTriggerStyle({ variant: 'ghost' }),
-                'font-medium'
-              )}
-            >
+          <NavigationMenuLink 
+            className={cn(
+              navigationMenuTriggerStyle({ variant: 'ghost' }),
+              'font-medium'
+            )}
+            asChild
+          >
+            <Link href="/download">
               Download
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         
         <NavigationMenuItem>
-          <Link href="/about" legacyBehavior passHref>
-            <NavigationMenuLink 
-              className={cn(
-                navigationMenuTriggerStyle({ variant: 'ghost' }),
-                'font-medium'
-              )}
-            >
+          <NavigationMenuLink 
+            className={cn(
+              navigationMenuTriggerStyle({ variant: 'ghost' }),
+              'font-medium'
+            )}
+            asChild
+          >
+            <Link href="/about" passHref>
               About
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         <span className='text-base font-medium select-none'> | </span>

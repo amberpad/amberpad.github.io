@@ -6,9 +6,7 @@ import { filterDownloadAssets, getUserAgentDownloadAssetsDefaults } from "@/lib/
 import prefetchedData from '@/assets/prefetched/github.json'
 import { FaSpinner } from "react-icons/fa6";
 
-interface Props extends React.ComponentPropsWithoutRef<React.ElementType>  {
-
-}
+interface Props extends React.ComponentPropsWithoutRef<React.ElementType> {}
 
 interface State {
   loading: boolean,
@@ -16,11 +14,6 @@ interface State {
     [key: string]: any;
   } | null
 }
-
-/*
-import { headers } from "next/headers"
-(headers().get('User-Agent') || '')
-*/
 
 const DownloadButton = React.forwardRef<any, Props>((props, forwardedRef) => {
   const [state, setState] = useState<State>({
@@ -42,19 +35,19 @@ const DownloadButton = React.forwardRef<any, Props>((props, forwardedRef) => {
 
   return (
     <div className="text-center">
-      <Link 
-        href={
-          state.installable === null ?
-            "/download" :
-            state.installable.browser_download_url
-        }
-        legacyBehavior 
-        passHref
+      <Button 
+        {...props}
+        className="bg-orange-500 hover:bg-orange-400 text-white"
+        ref={forwardedRef}
+        asChild
       >
-        <Button 
-          {...props}
-          className="bg-orange-500 hover:bg-orange-400 text-white"
-          ref={forwardedRef}
+        <Link 
+          href={
+            state.installable === null ?
+              "/download" :
+              state.installable.browser_download_url
+          }
+          passHref
         >
           {
             state.loading ? 
@@ -66,9 +59,8 @@ const DownloadButton = React.forwardRef<any, Props>((props, forwardedRef) => {
               ):
               'Download Beta Now'
           }
-                 
-        </Button>
-      </Link>
+        </Link>
+      </Button>
       <p className="mt-4 text-xs text-gray-800 dark:text-gray-300">
         Available for Windows and Linux.
       </p>

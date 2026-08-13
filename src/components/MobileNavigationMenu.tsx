@@ -80,30 +80,35 @@ const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) 
           )}
         >
 
-          <Link href="/" legacyBehavior passHref>
-            <Button 
-              variant='ghost'
-              onClick={() => setIsOpen(false)}
-            >
+          <Button 
+            variant='ghost'
+            onClick={() => setIsOpen(false)}
+            asChild
+          >
+            <Link href="/" passHref>
               Home
-            </Button>
-          </Link>
-          <Link href="/download" legacyBehavior passHref>
-            <Button 
-              variant='ghost'
-              onClick={() => setIsOpen(false)}
-            >
+            
+            </Link>
+          </Button>
+          
+          <Button 
+            variant='ghost'
+            onClick={() => setIsOpen(false)}
+            asChild
+          >
+            <Link href="/download" passHref>
               Download
-            </Button>
-          </Link>
-          <Link href="/about" legacyBehavior passHref>
-            <Button 
-              variant='ghost'
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Button>
-          </Link>
+            </Link>
+          </Button>
+          <Button 
+            variant='ghost'
+            onClick={() => setIsOpen(false)}
+            asChild
+          >
+            <Link href="/about" passHref>
+                About
+            </Link>
+          </Button>
 
         </div>
       </SheetContent>
