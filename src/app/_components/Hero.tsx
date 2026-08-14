@@ -56,7 +56,7 @@ const Hero = React.forwardRef<any, Props>((props, forwardedRef) => {
             Simple, efficient, and smart. The note-taking app with a web chat aesthetic.
           </h3>
         </div>
-        <DownloadButton />
+        {/* <DownloadButton /> */}
       </div>
 
       <div

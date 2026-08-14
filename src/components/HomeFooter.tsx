@@ -38,8 +38,10 @@ const Footer = React.forwardRef<HTMLElement, Props>((props, forwardedRef) => {
             data-tag='socials'
             className='flex flex-row justify-end items-center gap-2'
           >
-            <Button variant='ghost' size='icon'>
-              <FaGithub />
+            <Button variant='ghost' size='icon' asChild>
+              <a href="https://github.com/amberpad/amberpad-electron">
+                <FaGithub />
+              </a>
             </Button>
           </div>
           <div

@@ -65,7 +65,20 @@ const Features = React.forwardRef<any, Props>((props, forwardedRef) => {
         />
       </div>
       
-      <DownloadButton />
+      {/* <div className="flex flex-col justify-center items-center">
+        <div 
+          className={cn(
+            "w-96 h-96",
+            "flex flex-col justify-center items-center",
+            "bg-background rounded-lg shadow-md p-6 transition duration-300 ease-in-out transform",
+            "dark:bg-background dark:border dark:border-gray-700",
+            "hover:-translate-y-1 hover:shadow-lg"
+          )}
+        >
+          <DownloadButton />
+        </div>
+      </div> */}
+      
     </div>
 
     </section>

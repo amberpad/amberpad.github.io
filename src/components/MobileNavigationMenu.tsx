@@ -85,13 +85,13 @@ const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) 
             onClick={() => setIsOpen(false)}
             asChild
           >
-            <Link href="/" passHref>
+            <Link href="/#" passHref>
               Home
             
             </Link>
           </Button>
           
-          <Button 
+          {/* <Button 
             variant='ghost'
             onClick={() => setIsOpen(false)}
             asChild
@@ -99,7 +99,8 @@ const MobileNavigationMenu = React.forwardRef<any, Props>((props, forwardedRef) 
             <Link href="/download" passHref>
               Download
             </Link>
-          </Button>
+          </Button> */}
+
           <Button 
             variant='ghost'
             onClick={() => setIsOpen(false)}

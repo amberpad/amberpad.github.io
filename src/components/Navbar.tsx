@@ -38,13 +38,13 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
             )}
             asChild
           >
-            <Link href="/">
+            <Link href="/#">
               Home
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuLink 
             className={cn(
               navigationMenuTriggerStyle({ variant: 'ghost' }),
@@ -56,7 +56,7 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
               Download
             </Link>
           </NavigationMenuLink>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         
         <NavigationMenuItem>
           <NavigationMenuLink 
@@ -84,7 +84,7 @@ const Navbar = React.forwardRef<any, Props>((props, forwardedRef) => {
         <NavigationMenuItem>
           <NavigationMenuLink 
             className={navigationMenuTriggerStyle({ variant: 'icon' })}
-            href="#"
+            href="https://github.com/amberpad/amberpad-electron"
           >
             <FaGithub />
           </NavigationMenuLink>
