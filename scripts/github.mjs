@@ -178,8 +178,6 @@ const buildRepoData = async () => {
   console.info('Prefetched github data file updated')
 }
 
-await buildRepoData()
-
 /******************************************************************************
 * Utils
 ******************************************************************************/
@@ -261,3 +259,11 @@ function getOptionsValues (assets, attrs = []) {
       .map(([key, value]) => [key, Array.from(value)])
   )
 }
+
+/******************************************************************************
+ * Main function
+ *****************************************************************************/
+
+(async () => {
+  await buildRepoData();
+})();

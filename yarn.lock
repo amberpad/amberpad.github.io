@@ -356,10 +356,10 @@
     "@eslint-community/eslint-utils" "4.9.1"
     fast-glob "3.3.1"
 
-"@next/mdx@^14.2.11":
-  version "14.2.35"
-  resolved "https://registry.npmjs.org/@next/mdx/-/mdx-14.2.35.tgz"
-  integrity sha512-Pekqjb1Rm4mm0wJgRRmVIdN8eCEMMdDeCCa+REHYb8lZ9K7vYsEAVHJ8XBq8XaLKp110p8k6JdUT64sFE/y8Uw==
+"@next/mdx@^16.3.1":
+  version "16.3.1"
+  resolved "https://registry.npmjs.org/@next/mdx/-/mdx-16.3.1.tgz"
+  integrity sha512-H0oFxC5i9MH2I20eedDvHlJ61UuQ6BizOmD6QGWxtb6g27TDg1Vf4F/XegkNCnuSPfyX9U4KOHn7UQc2oYYFWQ==
   dependencies:
     source-map "^0.7.0"
 
